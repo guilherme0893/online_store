@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import * as api from '../services/api';
-import CategoryesList from '../components/CategoryeList';
+import CategoryesCard from './CategoryesCard';
+import '../styles/Category.css';
 
 export default class Categoryes extends Component {
   constructor() {
@@ -31,7 +31,13 @@ export default class Categoryes extends Component {
     return (
       <div className="categoryes">
         <h1>Categorias</h1>
-        <CategoryesList arrayCategoryes={ arrayCategoryes } />
+        <ol>
+          {arrayCategoryes.map((category) => (
+            <li key={ category.id }>
+              <CategoryesCard category={ category.name } />
+            </li>
+          ))}
+        </ol>
       </div>
     );
   }

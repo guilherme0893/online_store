@@ -6,7 +6,13 @@ export default class CategoryesCard extends Component {
   render() {
     const { category } = this.props;
     return (
-      <button type="button" data-testid="category">{ category }</button>
+      <button
+        type="button"
+        className="category-card"
+        data-testid="category"
+      >
+        { category }
+      </button>
     );
   }
 }
