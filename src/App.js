@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import Categoryes from './pages/Categoryes';
 import * as api from './services/api';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
     api.getProductsFromCategoryAndQuery();
     return (
       <div className="App">
-        Frontend Online Store
+        <Categoryes apiGetCategories={ api.getCategories } />
       </div>
     );
   }
