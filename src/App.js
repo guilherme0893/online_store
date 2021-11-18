@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './components/Routes';
 import './App.css';
 import * as api from './services/api';
 
@@ -9,9 +11,9 @@ class App extends Component {
     api.getCategories();
     api.getProductsFromCategoryAndQuery();
     return (
-      <div className="App">
-        Frontend Online Store
-      </div>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     );
   }
 }
