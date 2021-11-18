@@ -11,3 +11,5 @@ class ShoppingCart extends React.Component {
 }
 
 export default ShoppingCart;
+
+// Necessário reenvio
