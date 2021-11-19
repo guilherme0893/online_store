@@ -26,7 +26,6 @@ export default class Categoryes extends Component {
     const {
       state: { arrayCategoryes },
     } = this;
-    console.log(arrayCategoryes);
 
     return (
       <div className="categoryes">
