@@ -24,6 +24,7 @@ export default class Categoryes extends Component {
 
   render() {
     const {
+      props: { handleCategorySearch },
       state: { arrayCategoryes },
     } = this;
 
@@ -33,7 +34,11 @@ export default class Categoryes extends Component {
         <ol>
           {arrayCategoryes.map((category) => (
             <li key={ category.id }>
-              <CategoryesCard category={ category.name } />
+              <CategoryesCard
+                category={ category.name }
+                categoryId={ category.id }
+                handleCategorySearch={ handleCategorySearch }
+              />
             </li>
           ))}
         </ol>
@@ -44,4 +49,5 @@ export default class Categoryes extends Component {
 
 Categoryes.propTypes = {
   apiGetCategories: PropTypes.func.isRequired,
+  handleCategorySearch: PropTypes.func.isRequired,
 };
