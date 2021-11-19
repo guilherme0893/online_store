@@ -17,6 +17,7 @@ class Home extends Component {
 
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleCategorySearch = this.handleCategorySearch.bind(this);
   }
 
   handleQueryChange(event) {
@@ -43,13 +44,24 @@ class Home extends Component {
     }
   }
 
+  async handleCategorySearch(event) {
+    const result = await api.getProductsFromCategoryAndQuery(event.target.id, '');
+
+    this.setState({
+      products: result.results,
+    });
+  }
+
   render() {
     const { query, products, noResult } = this.state;
     return (
       <div>
         <Header />
         <div className="content-cart">
-          <Categoryes apiGetCategories={ api.getCategories } />
+          <Categoryes
+            apiGetCategories={ api.getCategories }
+            handleCategorySearch={ this.handleCategorySearch }
+          />
           <input
             data-testid="query-input"
             type="text"
