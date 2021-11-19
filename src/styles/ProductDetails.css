@@ -1,0 +1,40 @@
+.content-product-details {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.content-product-details header {
+  background-color: rgb(3, 174, 204);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.content-product-details img {
+  width: 50px
+}
+
+.content-product-details main {
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto;
+  width: 90%;
+}
+
+.content-product-details main .main-content {
+  background-color: tomato;
+  display: flex;
+  height: 500px;
+}
+
+.content-product-details main img {
+  background-color: turquoise;
+  flex: 4
+}
+
+.content-product-details main .product-detail {
+  flex: 8;
+  padding: 0 10px;
+
+}

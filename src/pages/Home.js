@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Categoryes from '../components/Categoryes';
 import Header from '../components/Header';
 import * as api from '../services/api';
@@ -17,9 +16,6 @@ class Home extends Component {
         <Header />
         <div className="content-cart">
           <Categoryes apiGetCategories={ api.getCategories } />
-          <Link to="/shopping-cart" data-testid="shopping-cart-button">
-            Carrinho de Compras
-          </Link>
         </div>
       </div>
     );
