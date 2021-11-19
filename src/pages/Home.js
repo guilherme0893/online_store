@@ -50,30 +50,35 @@ class Home extends Component {
         <Header />
         <div className="content-cart">
           <Categoryes apiGetCategories={ api.getCategories } />
-          <input
-            data-testid="query-input"
-            type="text"
-            value={ query }
-            placeholder="Pesquisar produtos"
-            onChange={ this.handleQueryChange }
-          />
-          <button
-            data-testid="query-button"
-            type="submit"
-            onClick={ this.handleSearch }
-          >
-            Pesquisar
-          </button>
-        </div>
-        <div className="query-result">
-          { noResult ? 'Nenhum produto foi encontrado' : products.map((product) => (
-            <ProductCard
-              key={ product.id }
-              title={ product.title }
-              image={ product.thumbnail }
-              price={ product.price }
-            />
-          )) }
+          <div className="search-products">
+            <div className="search-products-input">
+              <input
+                data-testid="query-input"
+                type="text"
+                value={ query }
+                placeholder="Pesquisar produtos"
+                onChange={ this.handleQueryChange }
+              />
+              <button
+                data-testid="query-button"
+                type="submit"
+                onClick={ this.handleSearch }
+              >
+                Pesquisar
+              </button>
+            </div>
+            <div className="query-result">
+              { noResult ? 'Nenhum produto foi encontrado' : products.map((product) => (
+                <ProductCard
+                  key={ product.id }
+                  title={ product.title }
+                  image={ product.thumbnail }
+                  price={ product.price }
+                  id={ product.id }
+                />
+              )) }
+            </div>
+          </div>
         </div>
       </div>
     );
