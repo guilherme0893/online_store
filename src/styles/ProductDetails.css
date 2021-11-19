@@ -4,15 +4,15 @@
 }
 
 .content-product-details header {
+  align-items: center;
   background-color: rgb(3, 174, 204);
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 0 50px;
 }
 
 .content-product-details img {
-  width: 50px
+  width: 50px;
 }
 
 .content-product-details main {
@@ -30,7 +30,7 @@
 
 .content-product-details main img {
   background-color: turquoise;
-  flex: 4
+  flex: 4;
 }
 
 .content-product-details main .product-detail {
