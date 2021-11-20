@@ -15,6 +15,7 @@ export default class ProductDefails extends Component {
       title: '',
       quantity: 0,
       freeShipping: true,
+      id: 0,
     };
   }
 
@@ -27,6 +28,7 @@ export default class ProductDefails extends Component {
     console.log(products);
     await products.results.map((product) => (
       this.setState({
+        id: product.id,
         title: product.title,
         price: product.price.toFixed(2),
         image: product.thumbnail,
