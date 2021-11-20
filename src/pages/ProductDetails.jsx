@@ -9,7 +9,7 @@ export default class ProductDefails extends Component {
   constructor() {
     super();
     this.state = {
-      // arryaProduct: [],
+      // arrayProduct: [],
       price: 0.00,
       image: '',
       title: '',
