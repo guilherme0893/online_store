@@ -15,29 +15,32 @@ class ShoppingCart extends React.Component {
     }
    }
 
+   totalPrice() {
+    const { clicksNumber, price } = this.state;
+    return clicksNumber * price;
+   }
+
    addQuantProduct(id) {
     arrayProduct.find((element) => {
       return element.id === id;
       this.setState(prevState)
       clicksNumber: prevState.clicksNumber + 1;
-    })
+    }, () => totalPrice())
    }
 
    subQuantProduct(id) {
     arrayProduct.filter((element) => {
       return element.id !== id;
       this.setState(prevState)
-      clicksNumber: prevState.clicksNumber + 1;
+      clicksNumber: prevState.clicksNumber - 1;
       price: element.price
-    }, () => {
-      element.price * clicksNumber
-    })
+    }, () => totalPrice())
    }
 
      
   render() {
 
-    // const { arrayProduct } = this.state;
+    const { arrayProduct } = this.state;
 
     return (
       <div>
