@@ -28,9 +28,16 @@
   height: 500px;
 }
 
-.content-product-details main img {
+.content-product-details main .product-image {
+  align-items: center;
   background-color: turquoise;
+  display: flex;
   flex: 4;
+  justify-content: center;
+}
+
+.content-product-details main .product-image  img {
+  width: auto;
 }
 
 .content-product-details main .product-detail {

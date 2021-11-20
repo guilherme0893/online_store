@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import SendToCartButton from './SendToCartButton';
 
 class ProductCard extends React.Component {
@@ -7,14 +8,19 @@ class ProductCard extends React.Component {
     const { title, image, price, sendProductToCart, productId } = this.props;
     return (
       <div>
-        <p>{ title }</p>
-        <img src={ image } alt={ title } />
-        <p>{ price }</p>
-        <span
-          data-testid="shopping-cart-product-quantity"
+        <Link
+          to={ `/product/${productId}` }
+          data-testid="product-detail-link"
         >
-          {/* Quantidade: */}
-        </span>
+          <p>{ title }</p>
+          <img src={ image } alt={ title } />
+          <p>{ price }</p>
+          <span
+            data-testid="shopping-cart-product-quantity"
+          >
+            {/* Quantidade: */}
+          </span>
+        </Link>
         <SendToCartButton
           sendProductToCart={ sendProductToCart }
           productId={ productId }

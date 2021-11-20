@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
 
 export default class CategoryesCard extends Component {
   render() {
-    const { category } = this.props;
+    const { category, handleCategorySearch, categoryId } = this.props;
     return (
       <button
         type="button"
         className="category-card"
         data-testid="category"
+        id={ categoryId }
+        onClick={ handleCategorySearch }
       >
         { category }
       </button>
@@ -19,4 +20,6 @@ export default class CategoryesCard extends Component {
 
 CategoryesCard.propTypes = {
   category: PropTypes.string.isRequired,
+  categoryId: PropTypes.string.isRequired,
+  handleCategorySearch: PropTypes.func.isRequired,
 };
