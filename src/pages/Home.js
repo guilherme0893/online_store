@@ -6,17 +6,19 @@ import * as api from '../services/api';
 import '../styles/Home.css';
 
 class Home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       query: '',
       products: [],
       noResult: false,
+      arrayProduct: [],
     };
 
     this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.sendProductToCart = this.sendProductToCart.bind(this);
     this.handleCategorySearch = this.handleCategorySearch.bind(this);
   }
 
@@ -46,10 +48,18 @@ class Home extends Component {
 
   async handleCategorySearch(event) {
     const result = await api.getProductsFromCategoryAndQuery(event.target.id, '');
-
     this.setState({
       products: result.results,
     });
+  }
+
+  sendProductToCart(event) {
+    // seguindo a aula 11.2
+    this.setState((prevState) => ({
+      arrayProduct: [...prevState.arrayProduct, event.target.id],
+    }));
+    const { arrayProduct } = this.state;
+    console.log(arrayProduct);
   }
 
   render() {
@@ -86,7 +96,6 @@ class Home extends Component {
                   title={ product.title }
                   image={ product.thumbnail }
                   price={ product.price }
-                  id={ product.id }
                 />
               )) }
             </div>
