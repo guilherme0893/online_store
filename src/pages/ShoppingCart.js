@@ -10,41 +10,39 @@ class ShoppingCart extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.loadProductsInCart();
   }
 
-  loadProductsInCart = () => {
-    this.setState({
-      // quem entra aqui é o arrayProduct que está na home
-      productInCart: '',
-    }, () => {
-      const { productInCart } = this.state;
-      if (productInCart.length > 0) {
-        this.setState({ empty: false });
-      }
-    });
+  loadProductsInCart = async () => {
+    const product = await JSON.parse(localStorage.getItem('product'));
+    if (product) this.setState({ empty: false, productInCart: product });
+    // else this.setState({ empty: false, productInCart: [{ title: 'Pequeno Principe, O', quantity: 1 }] });
   }
 
   render() {
     const { productInCart, empty } = this.state;
-    // criação do ternário no carrinho
     return (
       <div>
-        { empty
+        {empty
           ? (
             <h4 data-testid="shopping-cart-empty-message">
               Seu carrinho está vazio
             </h4>
-          )
-          : (
-            productInCart.map((product) => (
-              <div key={ product.id }>
-                <span data-testid="shopping-cart-product-name">
-                  { product.id }
-                </span>
-              </div>
-            )))}
+          ) : null}
+
+        {
+          productInCart.map((product) => (
+            <div key={ product.id }>
+              <span data-testid="shopping-cart-product-name">
+                { product.title }
+              </span>
+              <span data-testid="shopping-cart-product-quantity">
+                { product.quantity }
+              </span>
+            </div>
+          ))
+        }
       </div>
     );
   }
