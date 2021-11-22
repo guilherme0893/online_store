@@ -6,6 +6,7 @@ import BackButton from '../components/BackButton';
 import FreeShipping from '../components/FreeShipping';
 import SendToCartButton from '../components/SendToCartButton';
 import '../styles/ProductDetails.css';
+import CommentBox from '../components/CommentBox';
 
 export default class ProductDefails extends Component {
   constructor() {
@@ -70,6 +71,9 @@ export default class ProductDefails extends Component {
                 productId={ productId }
                 testId="product-detail-add-to-cart"
               />
+            </div>
+            <div>
+              <CommentBox />
             </div>
           </div>
         </main>
