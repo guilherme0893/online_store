@@ -64,6 +64,7 @@ class Home extends Component {
 
   render() {
     const { query, products, noResult } = this.state;
+    const { sendProductToCart } = this;
     return (
       <div>
         <Header />
@@ -97,6 +98,8 @@ class Home extends Component {
                   image={ product.thumbnail }
                   price={ product.price }
                   productId={ product.id }
+                  objectProduct={ product }
+                  sendProductToCart={ sendProductToCart }
                 />
               )) }
             </div>
