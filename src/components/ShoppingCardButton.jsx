@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LogoShoppingCart from '../images/logo-shop-card.svg';
+// teste
 
 export default class ShoppingCardButton extends Component {
   render() {
