@@ -34,6 +34,7 @@ export default class ProductDefails extends Component {
 
     arrayProduct.map((product) => (
       this.setState({
+        //  id: product.id,
         title: product.title,
         price: product.price.toFixed(2),
         image: product.pictures[0].secure_url,

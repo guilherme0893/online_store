@@ -2,16 +2,28 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SendToCartButton extends Component {
+  addQuantity = (getProduct, objectProduct) => {
+    const oldProduct = getProduct.find((product) => product.id === objectProduct.id);
+    const newList = getProduct.filter((product) => product.id !== objectProduct.id);
+    oldProduct.quantity += 1;
+    localStorage.setItem('product', JSON.stringify([...newList, oldProduct]));
+  }
+
   sendProductToCart = () => {
     const { objectProduct } = this.props;
     const getProduct = JSON.parse(localStorage.getItem('product')) || [];
-    const newProduct = {
-      title: objectProduct.title,
-      id: objectProduct.id,
-      price: objectProduct.price,
-      quantity: 1,
-    };
-    localStorage.setItem('product', JSON.stringify([...getProduct, newProduct]));
+    if (getProduct.some((product) => product.id === objectProduct.id)) {
+      this.addQuantity(getProduct, objectProduct);
+    } else {
+      const newProduct = {
+        title: objectProduct.title,
+        id: objectProduct.id,
+        price: objectProduct.price,
+        quantity: 1,
+        image: objectProduct.thumbnail,
+      };
+      localStorage.setItem('product', JSON.stringify([...getProduct, newProduct]));
+    }
   }
 
   render() {
@@ -39,6 +51,7 @@ SendToCartButton.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    thumbnail: PropTypes.string.isRequired,
   }).isRequired,
 };
 
