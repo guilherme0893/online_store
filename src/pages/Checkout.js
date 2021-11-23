@@ -53,6 +53,7 @@ class Checkout extends Component {
               type="text"
               name="fullname"
               id="fullname"
+              placeholder="Nome completo"
             />
           </label>
           <label htmlFor="email">
@@ -61,6 +62,7 @@ class Checkout extends Component {
               type="text"
               name="email"
               id="email"
+              placeholder="E-mail"
             />
           </label>
           <label htmlFor="cpf">
@@ -69,6 +71,7 @@ class Checkout extends Component {
               type="text"
               name="cpf"
               id="cpf"
+              placeholder="CPF"
             />
           </label>
           <label htmlFor="phone">
@@ -77,6 +80,7 @@ class Checkout extends Component {
               type="text"
               name="phone"
               id="phone"
+              placeholder="Telefone"
             />
           </label>
           <label htmlFor="cep">
@@ -85,6 +89,7 @@ class Checkout extends Component {
               type="text"
               name="cep"
               id="cep"
+              placeholder="CEP"
             />
           </label>
           <label htmlFor="address">
@@ -93,6 +98,7 @@ class Checkout extends Component {
               type="text"
               name="address"
               id="address"
+              placeholder="Endereço"
             />
           </label>
         </div>
