@@ -89,7 +89,7 @@ class Checkout extends Component {
               type="text"
               name="cep"
               id="cep"
-              placeholder="CEP"
+              placeholder="cep"
             />
           </label>
           <label htmlFor="address">
