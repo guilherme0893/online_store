@@ -10,7 +10,7 @@ class SendToCartButton extends Component {
   }
 
   sendProductToCart = () => {
-    const { objectProduct } = this.props;
+    const { objectProduct, sendProductToCart } = this.props;
     const getProduct = JSON.parse(localStorage.getItem('product')) || [];
     if (getProduct.some((product) => product.id === objectProduct.id)) {
       this.addQuantity(getProduct, objectProduct);
@@ -23,7 +23,7 @@ class SendToCartButton extends Component {
         image: objectProduct.thumbnail,
       };
       localStorage.setItem('product', JSON.stringify([...getProduct, newProduct]));
-    }
+    sendProductToCart();
   }
 
   render() {
@@ -47,12 +47,12 @@ class SendToCartButton extends Component {
 
 SendToCartButton.propTypes = {
   testId: PropTypes.string.isRequired,
-  objectProduct: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-  }).isRequired,
+ objectProduct: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string, PropTypes.number,
+    PropTypes.bool, PropTypes.object,
+    PropTypes.array,
+  ])).isRequired,
+  sendProductToCart: PropTypes.func.isRequired,
 };
 
 export default SendToCartButton;

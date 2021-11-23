@@ -13,7 +13,7 @@ class Home extends Component {
       query: '',
       products: [],
       noResult: false,
-      arrayProduct: [],
+      arrayProduct: JSON.parse(localStorage.getItem('product')) || [],
     };
 
     this.handleQueryChange = this.handleQueryChange.bind(this);
@@ -53,21 +53,18 @@ class Home extends Component {
     });
   }
 
-  sendProductToCart(event) {
-    // seguindo a aula 11.2
-    this.setState((prevState) => ({
-      arrayProduct: [...prevState.arrayProduct, event.target.id],
-    }));
-    const { arrayProduct } = this.state;
-    console.log(arrayProduct);
+  sendProductToCart() {
+    this.setState({
+      arrayProduct: JSON.parse(localStorage.getItem('product')),
+    });
   }
 
   render() {
-    const { query, products, noResult } = this.state;
+    const { query, products, noResult, arrayProduct } = this.state;
     const { sendProductToCart } = this;
     return (
       <div>
-        <Header />
+        <Header cart={ arrayProduct } />
         <div className="content-cart">
           <Categoryes
             apiGetCategories={ api.getCategories }
