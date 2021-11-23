@@ -4,19 +4,21 @@ import * as api from '../services/api';
 import ShoppingCardButton from '../components/ShoppingCardButton';
 import BackButton from '../components/BackButton';
 import FreeShipping from '../components/FreeShipping';
+import SendToCartButton from '../components/SendToCartButton';
 import '../styles/ProductDetails.css';
+import CommentBox from '../components/CommentBox';
 
 export default class ProductDefails extends Component {
   constructor() {
     super();
     this.state = {
-      // arrayProduct: [],
+      arrayProduct: [],
       price: 0.00,
       image: '',
       title: '',
       quantity: 0,
       freeShipping: true,
-      id: 0,
+      productId: '',
     };
   }
 
@@ -27,27 +29,27 @@ export default class ProductDefails extends Component {
   getProduct = async () => {
     const { match: { params: { id } } } = this.props;
     const products = await api.getProductsID(id);
-    this.setState({ arryaProduct: [products] });
-    const { arryaProduct } = this.state;
+    this.setState({ arrayProduct: [products] });
+    const { arrayProduct } = this.state;
 
-    arryaProduct.map((product) => (
+    arrayProduct.map((product) => (
       this.setState({
-        id: product.id,
+        //  id: product.id,
         title: product.title,
         price: product.price.toFixed(2),
         image: product.pictures[0].secure_url,
         quantity: product.available_quantity,
         freeShipping: product.shipping.free_shipping,
+        productId: product.id,
+        objectProduct: product,
       })
     ));
   }
 
   render() {
     const {
-      state: { price, image, title, quantity, freeShipping, arryaProduct },
+      state: { price, image, title, quantity, freeShipping, productId, objectProduct },
     } = this;
-    console.log(arryaProduct);
-
     return (
       <div className="content-product-details">
         <header>
@@ -65,6 +67,14 @@ export default class ProductDefails extends Component {
               <p>{ `R$ ${price}` }</p>
               {freeShipping && <FreeShipping />}
               <p>{ quantity }</p>
+              <SendToCartButton
+                objectProduct={ objectProduct }
+                productId={ productId }
+                testId="product-detail-add-to-cart"
+              />
+            </div>
+            <div>
+              <CommentBox />
             </div>
           </div>
         </main>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './Home';
+// import Home from './Home';
 // import ProductCard from '../components/ProductCard';
 
 class ShoppingCart extends React.Component {
@@ -8,91 +8,116 @@ class ShoppingCart extends React.Component {
 
     this.addQuantProduct = this.addQuantProduct.bind(this);
     this.subQuantProduct = this.subQuantProduct.bind(this);
+    this.eraseButton = this.eraseButton.bind(this);
 
-    this.state ={
+    this.state = {
       empty: true,
       productInCart: [],
-      // arrayProduct,
-      // clicksNumber: 0,
-      // price: 0,
-    }
-   }
+    };
+  }
 
-   componentDidMount() {
+  componentDidMount() {
     this.loadProductsInCart();
   }
 
-  loadProductsInCart = () => {
-    this.setState({
-      // quem entra aqui é o arrayProduct que está na home
-      productInCart: '',
-    }, () => {
-      const { productInCart } = this.state;
-      if (productInCart.length > 0) {
-        this.setState({ empty: false });
-      }
-    });
+  loadProductsInCart = async () => {
+    const product = await JSON.parse(localStorage.getItem('product'));
+    if (product) this.setState({ empty: false, productInCart: product });
+    // else this.setState({ empty: false, productInCart: [{ title: 'Pequeno Principe, O', quantity: 1 }] });
+  };
+
+  addQuantProduct(event) {
+    const products = JSON.parse(localStorage.getItem('product')) || [];
+    if (products) {
+      const oldProduct = products.find((product) => product.id === event.target.id);
+      const newList = products.filter((product) => product.id !== event.target.id);
+      oldProduct.quantity += 1;
+      localStorage.setItem('product', JSON.stringify([...newList, oldProduct]));
+      this.setState({
+        productInCart: JSON.parse(localStorage.getItem('product')),
+      });
+    }
   }
 
-  //  totalPrice() {
-  //   const { clicksNumber, price } = this.state;
-  //   this.setState({ [price]: clicksNumber * price )}
-  //  }
+  subQuantProduct(event) {
+    const products = JSON.parse(localStorage.getItem('product')) || [];
+    if (products) {
+      const oldProduct = products.find((product) => product.id === event.target.id);
+      const newList = products.filter((product) => product.id !== event.target.id);
+      if (oldProduct.quantity === 1) {
+        localStorage.setItem('product', JSON.stringify([...newList]));
+        this.setState({
+          productInCart: JSON.parse(localStorage.getItem('product')),
+        });
+      } else {
+        oldProduct.quantity -= 1;
+        localStorage.setItem('product', JSON.stringify([...newList, oldProduct]));
+        this.setState({
+          productInCart: JSON.parse(localStorage.getItem('product')),
+        });
+      }
+    }
+  }
 
-  //  addQuantProduct(id) {
-  //   arrayProduct.find((element) => {
-  //     return element.id === id;
-  //     this.setState(prevState)
-  //     clicksNumber: prevState.clicksNumber + 1;
-  //   }, () => totalPrice())
-  //  }
+  eraseButton(event) {
+    const products = JSON.parse(localStorage.getItem('product')) || [];
+    if (products) {
+      const newList = products.filter((product) => product.id !== event.target.id);
+      localStorage.setItem('product', JSON.stringify([...newList]));
+      this.setState({
+        productInCart: JSON.parse(localStorage.getItem('product')),
+      });
+    }
+  }
 
-  //  subQuantProduct(id) {
-  //   arrayProduct.filter((element) => {
-  //     return element.id !== id;
-  //     this.setState(prevState)
-  //     clicksNumber: prevState.clicksNumber - 1;
-  //     price: element.price
-  //   }, () => totalPrice())
-  //  }
-
-     
   render() {
     const { productInCart, empty } = this.state;
-    // const { arrayProduct } = this.state;
 
     return (
-      <>
-        {/* <div>
-          <h4 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h4>
-          {
-            arrayProduct.map((product) =>
-              <div key={ product.id }>
-                <ProductCard product={ product } />
-                <button type="button" onClick={ this.addQuantProduct }>+</button>
-                <button type="button" onClick={ this.subQuantProduct }>-</button>
-                
-              </div>  
-              )
-          }
-          </div> */}
-          <div>
-          { empty
-            ? (
-              <h4 data-testid="shopping-cart-empty-message">
-                Seu carrinho está vazio
-              </h4>
-            )
-            : (
-              productInCart.map((product) => (
-                <div key={ product.id }>
-                  <span data-testid="shopping-cart-product-name">
-                    { product.id }
-                  </span>
-                </div>
-              )))}
-        </div>
-      </>
+      <div>
+        {empty ? (
+          <h4 data-testid="shopping-cart-empty-message">
+            Seu carrinho está vazio
+          </h4>
+        ) : null}
+
+        {productInCart.map((product) => (
+          <div key={ product.id }>
+            <span data-testid="shopping-cart-product-name">
+              {product.title}
+            </span>
+
+            <img src={ product.image } alt={ product.title } />
+            <span>{product.price}</span>
+            <button
+              type="button"
+              id={ product.id }
+              onClick={ this.addQuantProduct }
+              data-testid="product-increase-quantity"
+            >
+              +
+            </button>
+            <span data-testid="shopping-cart-product-quantity">
+              {product.quantity}
+            </span>
+            <button
+              type="button"
+              id={ product.id }
+              onClick={ this.subQuantProduct }
+              data-testid="product-decrease-quantity"
+            >
+              -
+            </button>
+            <button
+              type="button"
+              id={ product.id }
+              onClick={ this.eraseButton }
+            >
+              X
+            </button>
+          </div>
+        ))}
+      </div>
     );
   }
 }

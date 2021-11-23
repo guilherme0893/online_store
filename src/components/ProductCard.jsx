@@ -5,9 +5,11 @@ import SendToCartButton from './SendToCartButton';
 
 class ProductCard extends React.Component {
   render() {
-    const { title, image, price, sendProductToCart, productId } = this.props;
+    const {
+      title, image, price, sendProductToCart, productId, objectProduct,
+    } = this.props;
     return (
-      <div>
+      <div data-testid="product">
         <Link
           to={ `/product/${productId}` }
           data-testid="product-detail-link"
@@ -24,6 +26,8 @@ class ProductCard extends React.Component {
         <SendToCartButton
           sendProductToCart={ sendProductToCart }
           productId={ productId }
+          objectProduct={ objectProduct }
+          testId="product-add-to-cart"
         />
       </div>
     );
@@ -36,6 +40,10 @@ ProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   productId: PropTypes.string.isRequired,
   sendProductToCart: PropTypes.func.isRequired,
+  objectProduct: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 export default ProductCard;
