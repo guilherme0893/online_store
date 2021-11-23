@@ -8,6 +8,7 @@ class ProductCard extends React.Component {
     const {
       title, image, price, sendProductToCart, productId, objectProduct,
     } = this.props;
+
     return (
       <div data-testid="product">
         <Link
@@ -23,6 +24,9 @@ class ProductCard extends React.Component {
             {/* Quantidade: */}
           </span>
         </Link>
+        { objectProduct
+          .shipping.free_shipping ? <p data-testid="free-shipping">Frete grátis</p>
+          : null}
         <SendToCartButton
           sendProductToCart={ sendProductToCart }
           productId={ productId }
