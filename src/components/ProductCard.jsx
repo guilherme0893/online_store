@@ -8,6 +8,7 @@ class ProductCard extends React.Component {
     const {
       title, image, price, sendProductToCart, productId, objectProduct,
     } = this.props;
+
     return (
       <div data-testid="product">
         <Link
@@ -23,6 +24,9 @@ class ProductCard extends React.Component {
             {/* Quantidade: */}
           </span>
         </Link>
+        { objectProduct
+          .shipping.free_shipping ? <p data-testid="free-shipping">Frete grátis</p>
+          : null}
         <SendToCartButton
           sendProductToCart={ sendProductToCart }
           productId={ productId }
@@ -40,10 +44,15 @@ ProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   productId: PropTypes.string.isRequired,
   sendProductToCart: PropTypes.func.isRequired,
-  objectProduct: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
+  objectProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+      PropTypes.object,
+      PropTypes.array,
+    ]),
+  ).isRequired,
 };
 
 export default ProductCard;
