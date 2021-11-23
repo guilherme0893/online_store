@@ -40,10 +40,15 @@ ProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   productId: PropTypes.string.isRequired,
   sendProductToCart: PropTypes.func.isRequired,
-  objectProduct: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
+  objectProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+      PropTypes.object,
+      PropTypes.array,
+    ]),
+  ).isRequired,
 };
 
 export default ProductCard;
