@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class SendToCartButton extends Component {
+export default class SendToCartButton extends Component {
   addQuantity = (getProduct, objectProduct) => {
     const oldProduct = getProduct.find((product) => product.id === objectProduct.id);
     const newList = getProduct.filter((product) => product.id !== objectProduct.id);
@@ -23,7 +23,8 @@ class SendToCartButton extends Component {
         image: objectProduct.thumbnail,
       };
       localStorage.setItem('product', JSON.stringify([...getProduct, newProduct]));
-    sendProductToCart();
+      sendProductToCart();
+    }
   }
 
   render() {
@@ -47,12 +48,10 @@ class SendToCartButton extends Component {
 
 SendToCartButton.propTypes = {
   testId: PropTypes.string.isRequired,
- objectProduct: PropTypes.objectOf(PropTypes.oneOfType([
+  objectProduct: PropTypes.objectOf(PropTypes.oneOfType([
     PropTypes.string, PropTypes.number,
     PropTypes.bool, PropTypes.object,
     PropTypes.array,
   ])).isRequired,
   sendProductToCart: PropTypes.func.isRequired,
 };
-
-export default SendToCartButton;
