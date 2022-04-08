@@ -1,21 +1,27 @@
 export async function getCategories() {
-  const url = 'https://api.mercadolibre.com/sites/MLB/categories';
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => data);
+  try {
+    const request = fetch('https://api.mercadolibre.com/sites/MLB/categories')
+      .then((result) => result.json())
+      .then((data) => data);
+    return request;
+  } catch (error) {
+    console.error(error); // alterar para page notFound depois
+  }
 }
 
 export async function getProductsFromCategoryAndQuery(categoryId, query) {
-  // usei o template aqui para pegar os parametros dados pela Trybe e inserir na url
-  const url = ` https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}&q=${query}`;
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => data);
+  try {
+    return fetch(` https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}&q=${query}`)
+      .then((result) => result.json())
+      .then((data) => data);
+  } catch (error) {
+    console.error(error); // alterar para page not found depois
+  }
 }
 
-export async function getProductsID(productId) {
-  const url = `https://api.mercadolibre.com/items/${productId}`;
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => data);
+export async function getProductDetails(id) {
+  const request = await fetch(`https://api.mercadolibre.com/items/${id}`);
+  const result = await request.json();
+  const returnedDetails = result;
+  return returnedDetails;
 }
