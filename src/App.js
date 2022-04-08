@@ -1,16 +1,18 @@
-import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './components/Routes';
-// teste
+import React, { useEffect } from 'react';
+import './App.css';
+import Routes from './routes/Routes';
+import GlobalProvider from './Context/GlobalProvider';
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
-    );
-  }
+function App() {
+  useEffect(() => {
+    document.body.style.backgroundColor = 'rgb(220, 220, 221)';
+  });
+
+  return (
+    <GlobalProvider>
+      <Routes />
+    </GlobalProvider>
+  );
 }
 
 export default App;
