@@ -32,6 +32,7 @@ function ProductDetail() {
       <Header />
       <main>
         <ProductDetails
+          id={ productDetails.id }
           title={ productDetails.title }
           price={ productDetails.price }
           thumbnail={ productDetails.thumbnail }

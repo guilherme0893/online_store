@@ -8,7 +8,7 @@ function ProductQuantity(props) {
 
   const [value, setValue] = useState('0'); // no globalProvider mudava todos os produtos -- talvez usar um provider separado depois;
 
-  const quantityArray = Array.from(Array(available_quantity + 1).values()); // cria um elemento iterável que possui os values do objeto com X propriedades (available_quantity)
+  const quantityArray = Array.from(Array(available_quantity + 1).keys()); // cria um elemento iterável que possui as chaves do objeto com X propriedades (available_quantity)
 
   return (
     <div className="text-center">
