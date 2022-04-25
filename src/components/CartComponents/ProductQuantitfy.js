@@ -8,7 +8,7 @@ function ProductQuantity(props) {
 
   const [value, setValue] = useState('0'); // no globalProvider mudava todos os produtos -- talvez usar um provider separado depois;
 
-  const quantitiyArray = Array.from(Array(available_quantity + 1).keys());
+  const quantityArray = Array.from(Array(available_quantity + 1).values()); // cria um elemento iterável que possui os values do objeto com X propriedades (available_quantity)
 
   return (
     <div className="text-center">
@@ -20,7 +20,7 @@ function ProductQuantity(props) {
           value={ value }
           onChange={ (event) => setValue(event.target.value) }
         >
-          {quantitiyArray.map((quantity, index) => (
+          {quantityArray.map((quantity, index) => (
             <option
               className="text-center"
               key={ index }

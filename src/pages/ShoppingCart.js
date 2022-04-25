@@ -6,8 +6,8 @@ import Footer from '../components/Footer';
 function ShoppingCart() {
   const getProducts = () => {
     const products = JSON.parse(localStorage.getItem('productsInCart'));
-    if (!products) {
-      return false;
+    if (!products || products.length === 0) {
+      return 'empty';
     }
     if (products) {
       return [...new Map(products
@@ -26,7 +26,7 @@ function ShoppingCart() {
         className="d-flex flex-column"
         // style={ { width: '50%', margin: 'auto' } }
       >
-        {products === false
+        {products === 'empty'
           ? <h2 className="text-center">Seu carrinho está vazio!</h2>
           : products
             .map((product, index) => (
