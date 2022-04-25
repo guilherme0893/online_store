@@ -7,5 +7,3 @@ Future updates
 -- create the checkoutpage
 
 -- complete remove item button
-
--- fix bug of duplicated item when add through the detail page
