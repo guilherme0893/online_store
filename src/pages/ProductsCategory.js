@@ -12,7 +12,7 @@ import ProductsByCategory from '../components/CategoriesComponents/ProductsByCat
 function ProductsCategory() {
   return (
     <div>
-      <Header />
+      <Header text="Online Store" />
       <main
         className="d-flex flex-wrap h-100 justify-content-center
         align-items-center border"
