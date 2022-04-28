@@ -12,14 +12,15 @@ function ProductDetail(props) {
 
   return (
     <div
-      className="d-flex flex-row align-items-center mt-3 mb-3 p-4 rounded overflow-hidden"
+      className="d-flex flex-row align-items-center mt-3 mb-3 p-4
+        rounded overflow-hidden shadow"
       style={ {
         margin: 'auto',
-        backgroundColor: 'rgb(197, 195, 198)',
         border: '1px solid black',
-        width: '40rem',
+        width: '60rem',
         height: '25rem',
         baseline: 'baseline',
+        backgroundColor: 'RGB(232, 232, 228)',
       } }
     >
       <div
@@ -37,10 +38,24 @@ function ProductDetail(props) {
         className="d-flex flex-column align-items-center m-5 pt-4"
         style={ { width: '40rem', height: '20rem' } }
       >
-        <p className="text-center">{title}</p>
-        <p className="text-center">{price}</p>
-        <p className="text-center">{ fewProductsAvailable }</p>
-        <p className="text-center">{ shipping ? 'Frete grátis!' : null }</p>
+        <h5 className="text-center">{title}</h5>
+        <p className="text-center">
+          R$
+          {' '}
+          { price }
+        </p>
+        <p
+          className="text-center"
+          style={ { fontWeight: 'bold' } }
+        >
+          { fewProductsAvailable }
+        </p>
+        <p
+          className="text-center font-weight-bold"
+          style={ { fontWeight: 'bold' } }
+        >
+          { shipping ? 'Frete grátis!' : null }
+        </p>
         <div>
           <SendToCartButton
             title={ title }

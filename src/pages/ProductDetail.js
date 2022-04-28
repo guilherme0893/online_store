@@ -1,8 +1,10 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useContext } from 'react';
 import Header from '../components/HomeComponents/Header';
+import Footer from '../components/Footer';
 import ProductDetails from '../components/DetailComponents/ProductDetails';
 import GlobalContext from '../Context/GlobalContext';
+import SecondaryHeader from '../components/SecondaryHeader';
 
 function ProductDetail() {
   const removeControl = 10;
@@ -27,9 +29,12 @@ function ProductDetail() {
     getProductDetails(idFromUrl);
   }, [setProductDetails, idFromUrl, setFreeShipping]);
 
+  const text = 'Want to see something else? Check different categories!';
+
   return (
     <div>
       <Header />
+      <SecondaryHeader text={ text } />
       <main>
         <ProductDetails
           id={ productDetails.id }
@@ -40,6 +45,7 @@ function ProductDetail() {
           shipping={ freeShipping }
         />
       </main>
+      <Footer />
     </div>
   );
 }

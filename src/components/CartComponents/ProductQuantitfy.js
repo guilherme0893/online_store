@@ -11,7 +11,7 @@ function ProductQuantity(props) {
   const quantityArray = Array.from(Array(available_quantity + 1).keys()); // cria um elemento iterável que possui as chaves do objeto com X propriedades (available_quantity)
 
   return (
-    <div className="text-center">
+    <div className="text-center inline-block">
       <div className="d-flex">
         <p className="m-auto">
           Escolha quantidade

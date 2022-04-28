@@ -7,17 +7,21 @@ import SendToCartButton from '../HomeComponents/SendToCartButton';
 function ProductsCategoryCard(props) {
   const { title, id, thumbnail, price } = props;
 
+  const sliceTitleLimit = 35;
+  const shortedTitle = title.slice(0, sliceTitleLimit);
+
   return (
     <div
-      className="flex-col m-3 p-4 justify-content-evenly rounded overflow-hidden"
+      className="flex-col m-3 p-4 justify-content-evenly rounded overflow-hidden shadow"
       style={ {
-        border: '1px solid black',
+        border: '1px solid RGB(236, 228, 219)',
         width: '20rem',
         height: '370px',
         baseline: 'baseline',
+        backgroundColor: 'RGB(232, 232, 228)',
       } }
     >
-      <div className="d-flex align-items-center">
+      <div className="d-flex align-items-center mb-3">
         <img
           className="img-thumbnail rounded mx-auto d-block"
           style={ { width: '10rem', height: '10rem' } }
@@ -26,7 +30,7 @@ function ProductsCategoryCard(props) {
         />
       </div>
       <div className="mt-1 d-flex flex-column align-items-center">
-        <Link to={ `/products/${id}` }>{title}</Link>
+        <Link to={ `/products/${id}` }>{shortedTitle}</Link>
         <p className="">
           R$
           { ' ' }

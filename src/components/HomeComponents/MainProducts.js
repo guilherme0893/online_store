@@ -19,7 +19,7 @@ function MainProducts() {
 
   return (
     <main
-      className="d-flex flex-wrap h-100 justify-content-center align-items-center border"
+      className="d-flex flex-wrap h-100 justify-content-center align-items-center"
     >
       {mainProducts.map((products) => (
         <ProductCard
