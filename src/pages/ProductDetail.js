@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useContext } from 'react';
 import Header from '../components/HomeComponents/Header';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 import ProductDetails from '../components/DetailComponents/ProductDetails';
 import GlobalContext from '../Context/GlobalContext';
 import SecondaryHeader from '../components/SecondaryHeader';
@@ -33,7 +33,7 @@ function ProductDetail() {
 
   return (
     <div>
-      <Header />
+      <Header text="Online Store" />
       <SecondaryHeader text={ text } />
       <main>
         <ProductDetails
@@ -45,7 +45,7 @@ function ProductDetail() {
           shipping={ freeShipping }
         />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

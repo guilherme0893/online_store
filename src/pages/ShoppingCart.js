@@ -1,7 +1,7 @@
 import React from 'react';
 import CartHeader from '../components/CartComponents/CartHeader';
 import ProductsInCart from '../components/CartComponents/ProductsInCart';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 import SecondaryHeader from '../components/SecondaryHeader';
 
 function ShoppingCart() {
@@ -42,7 +42,7 @@ function ShoppingCart() {
               />
             ))}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

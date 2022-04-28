@@ -3,7 +3,8 @@ import React from 'react';
 function Footer() {
   return (
     <footer
-      className="fixed-bottom text-center p-4 mt-4 bg-dark border border-dark"
+      className="text-center bg-dark border border-dark mt-4"
+      style={ { marginAuto: 'auto' } }
     >
       <p className="text-white bg-dark m-auto">Guilherme Duarte - 2022</p>
     </footer>
