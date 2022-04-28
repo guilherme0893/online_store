@@ -1,7 +1,9 @@
 // import React, { useEffect, useContext } from 'react';
 import React from 'react';
+import Footer from '../components/Footer';
 // import PropTypes from 'prop-types';
 import Header from '../components/HomeComponents/Header';
+// import SecondaryHeader from '../components/SecondaryHeader';
 // import ProductsCategoryCard from
 //   '../components/CategoriesComponents/ProductsCategoryCard';
 import ProductsByCategory from '../components/CategoriesComponents/ProductsByCategory';
@@ -17,6 +19,7 @@ function ProductsCategory() {
       >
         <ProductsByCategory />
       </main>
+      <Footer />
     </div>
 
   );

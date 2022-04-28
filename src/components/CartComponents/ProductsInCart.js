@@ -10,12 +10,12 @@ function ProductsInCart(props) {
   return (
     <Card
       id="card"
-      className="border border-dark d-flex flex-row mt-3 mb-3 p-4 rounded overflow-hidden"
+      className="border border-dark d-flex flex-row mt-3 mb-3 p-4 rounded overflow-hidden shadow"
       style={ {
         margin: 'auto',
-        backgroundColor: 'rgb(197, 195, 198)',
-        width: '40rem',
-        height: '23rem',
+        backgroundColor: 'RGB(232, 232, 228)',
+        width: '50rem',
+        height: '20rem',
         baseline: 'baseline',
       } }
     >
@@ -33,13 +33,13 @@ function ProductsInCart(props) {
             { ' ' }
             {price}
           </Card.Text>
-          <Container className="ml-2 d-flex flex-row text-center">
+          <Container className="ml-2 d-flex flex-row text-center align-items-center">
             <ProductQuantity
               available_quantity={ available_quantity }
               price={ price }
             />
           </Container>
-          <Container>
+          <Container className="d-flex flex-column align-items-center">
             <RemoveFromCartButton />
           </Container>
         </Container>

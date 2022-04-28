@@ -9,30 +9,35 @@ function ProductCard(props) {
 
   return (
     <div
-      className="flex-col m-3 p-4 justify-content-evenly rounded overflow-hidden"
+      id="productCard"
+      className="flex-col m-2 mt-4 p-4 justify-content-evenly
+        rounded overflow-hidden shadow"
       style={ {
-        border: '1px solid black',
+        border: '1px solid RGB(236, 228, 219)',
         width: '20rem',
         height: '370px',
         baseline: 'baseline',
+        backgroundColor: 'RGB(232, 232, 228)',
       } }
     >
-      <div className="d-flex align-items-center">
-        <img
-          className="img-thumbnail rounded mx-auto d-block"
-          style={ { width: '10rem', height: '10rem' } }
-          src={ thumbnail }
-          alt={ title }
-        />
+      <div className="d-flex align-items-center mb-3">
+        <Link to={ `/products/${id}` }>
+          <img
+            className="img-thumbnail mx-auto d-block"
+            style={ { width: '15rem', height: '15rem' } }
+            src={ thumbnail }
+            alt={ title }
+          />
+        </Link>
       </div>
-      <div className="mt-1 d-flex flex-column align-items-center">
+      {/* <div className="mt-1 d-flex flex-column align-items-center">
         <Link to={ `/products/${id}` }>{title}</Link>
         <p className="">
           R$
           { ' ' }
           {price}
         </p>
-      </div>
+      </div> */}
       <SendToCartButton
         title={ title }
         id={ id }

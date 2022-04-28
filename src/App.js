@@ -5,7 +5,7 @@ import GlobalProvider from './Context/GlobalProvider';
 
 function App() {
   useEffect(() => {
-    document.body.style.backgroundColor = 'rgb(220, 220, 221)';
+    document.body.style.backgroundColor = '#F5FCFF';
   });
 
   return (
