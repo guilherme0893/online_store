@@ -22,52 +22,45 @@ function Header(props) {
   return (
     <header
       data-testid="main-header"
-      className="d-flex justify-content-between p-3"
+      className="d-flex justify-content-around p-2"
       style={ {
-        backgroundColor: 'rgb(248, 237, 235)',
+        backgroundColor: 'rgb(54, 69, 79)',
         border: '1px solid black',
       } }
     >
-      <div>
+      <div className="">
         <Dropdown />
       </div>
-      <div
-        // style={ { marginLeft: '-60px' } }
-        className="d-flex mt-2"
-      >
-        <Link to="/" className="text-dark" style={ { textDecoration: 'none' } }>
+      <div>
+        <Link to="/" className="text-white" style={ { textDecoration: 'none' } }>
           <h1>
             { text }
           </h1>
         </Link>
       </div>
       <div
-        className="d-flex "
+        className=""
+        style={ { maxWidth: '50px' } }
       >
-        <div
-          className="cartDiv"
-          style={ { maxWidth: '60px' } }
-        >
-          <Link href="null">
-            <BsCartFill
+        <Link href="null">
+          <BsCartFill
+            onClick={ () => onButtonClick() }
+            size="1x"
+          />
+          {/* // shopping cart icon chage for the futre updated */}
+          {/* { isCartEmpty === false ? (
+            <BsCart
               onClick={ () => onButtonClick() }
               size="1x"
             />
-            {/* // shopping cart icon chage for the futre updated */}
-            {/* { isCartEmpty === false ? (
-              <BsCart
+          )
+            : (
+              <BsCartFill
                 onClick={ () => onButtonClick() }
                 size="1x"
               />
-            )
-              : (
-                <BsCartFill
-                  onClick={ () => onButtonClick() }
-                  size="1x"
-                />
-              )} */}
-          </Link>
-        </div>
+            )} */}
+        </Link>
       </div>
     </header>
   );
