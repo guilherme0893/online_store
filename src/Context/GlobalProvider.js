@@ -14,6 +14,8 @@ function GlobalProvider({ children }) {
 
   const [freeShipping, setFreeShipping] = useState(false);
 
+  const [cartEmpty, setCartEmpty] = useState(true);
+
   const [
     sendToLocalStorage,
     setSendToLocalStorage,
@@ -34,6 +36,8 @@ function GlobalProvider({ children }) {
     setProductDetails,
     freeShipping,
     setFreeShipping,
+    cartEmpty,
+    setCartEmpty,
     sendToLocalStorage,
     setSendToLocalStorage,
     filter,

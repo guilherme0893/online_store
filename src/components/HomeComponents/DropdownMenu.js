@@ -1,10 +1,10 @@
+// import { Button } from 'bootstrap';
 import React, { useContext, useEffect } from 'react';
 import { Navbar, NavDropdown, ListGroup } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import GlobalContext from '../../Context/GlobalContext';
 
 function DropdownMenu() {
-  const history = useHistory();
   const { categories, setCategories } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -12,34 +12,33 @@ function DropdownMenu() {
       const request = await fetch('https://api.mercadolibre.com/sites/MLB/categories');
       const returnedCategories = await request.json();
       setCategories(returnedCategories);
-      console.log(returnedCategories);
     }
     getCategories();
-  }, [setCategories]);
+  }, []);
 
   return (
     <Navbar
       expand="lg"
-      className="border border-dark flex
-        justify-content-center bg-light text-dark"
+      className="border border-dark flex p-3 pt-1 pb-1
+        justify-content-center bg-light text-dark navbar-expand-md"
     >
-      <Navbar.Collapse className="text-dark">
-        <NavDropdown className="text-dark" title="Categories">
-          <ListGroup className="text-dark">
-            {
-              categories.map((category, index) => (
-                <ListGroup.Item
-                  key={ index }
-                  className="p-1"
-                  onClick={ () => history.push(`/products/category/${category.id}`) }
-                >
-                  {category.name}
-                </ListGroup.Item>
-              ))
-            }
-          </ListGroup>
-        </NavDropdown>
-      </Navbar.Collapse>
+      <NavDropdown>
+        <ListGroup>
+          {
+            categories.map((category, index) => (
+              <Link
+                key={ index }
+                className="pe-auto text-dark p-2 border-bottom"
+                style={ { textDecoration: 'none' } }
+                to={ `/products/category/${category.id}` }
+              >
+                {category.name}
+              </Link>
+            ))
+          }
+        </ListGroup>
+      </NavDropdown>
+      Search for categories
     </Navbar>
   );
 }

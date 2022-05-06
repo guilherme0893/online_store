@@ -7,8 +7,6 @@ import SendToCartButton from './SendToCartButton';
 function ProductCard(props) {
   const { title, price, thumbnail, id, available_quantity } = props;
 
-  // const shortedTitle = title.slice(0, 25);
-
   return (
     <div
       id="productCard"
@@ -16,7 +14,7 @@ function ProductCard(props) {
         rounded overflow-hidden"
       style={ {
         // border: '1px',
-        width: '20rem',
+        width: '18rem',
         height: '340px',
         baseline: 'baseline',
         backgroundColor: 'RGB(233, 236, 239)',
@@ -33,7 +31,6 @@ function ProductCard(props) {
             />
           </Link>
         </div>
-        {/* <h6>{shortedTitle}</h6> */}
         <div>
           <SendToCartButton
             title={ title }

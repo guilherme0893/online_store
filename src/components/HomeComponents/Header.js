@@ -1,23 +1,30 @@
-import React from 'react';
-import { BsCartFill } from 'react-icons/bs';
+import React, { useEffect, useContext } from 'react';
+import { BsCartFill, BsCart } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
+import GlobalContext from '../../Context/GlobalContext';
 import Dropdown from './DropdownMenu';
 
 function Header(props) {
   const { text } = props;
   const history = useHistory();
 
+  const { cartEmpty, setCartEmpty } = useContext(GlobalContext);
+
   function onButtonClick() {
     history.push('/shopping-cart');
   }
 
-  // const isCartEmpty = () => {
-  //   const products = JSON.parse(localStorage.getItem('productsInCart'));
-  //   if (products) {
-  //     return false;
-  //   }
-  // };
+  const isCartEmpty = () => {
+    const products = JSON.parse(localStorage.getItem('productsInCart'));
+    if (products > 0 || products === null || products === undefined) {
+      setCartEmpty(false);
+    } else setCartEmpty(true);
+  };
+
+  useEffect(() => {
+    isCartEmpty();
+  });
 
   return (
     <header
@@ -28,7 +35,7 @@ function Header(props) {
         border: '1px solid black',
       } }
     >
-      <div className="">
+      <div>
         <Dropdown />
       </div>
       <div>
@@ -43,23 +50,18 @@ function Header(props) {
         style={ { maxWidth: '50px' } }
       >
         <Link href="null">
-          <BsCartFill
-            onClick={ () => onButtonClick() }
-            size="1x"
-          />
-          {/* // shopping cart icon chage for the futre updated */}
-          {/* { isCartEmpty === false ? (
-            <BsCart
+          { cartEmpty ? (
+            <BsCartFill
               onClick={ () => onButtonClick() }
               size="1x"
             />
           )
             : (
-              <BsCartFill
+              <BsCart
                 onClick={ () => onButtonClick() }
                 size="1x"
               />
-            )} */}
+            )}
         </Link>
       </div>
     </header>

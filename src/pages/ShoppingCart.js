@@ -1,7 +1,6 @@
 import React from 'react';
 import CartHeader from '../components/CartComponents/CartHeader';
 import ProductsInCart from '../components/CartComponents/ProductsInCart';
-// import Footer from '../components/Footer';
 import SecondaryHeader from '../components/SecondaryHeader';
 
 function ShoppingCart() {
@@ -26,7 +25,6 @@ function ShoppingCart() {
       </div>
       <main
         className="d-flex flex-column"
-        // style={ { width: '50%', margin: 'auto' } }
       >
         {products === 'empty'
           ? <h2 className="text-center">Seu carrinho está vazio!</h2>
@@ -42,7 +40,6 @@ function ShoppingCart() {
               />
             ))}
       </main>
-      {/* <Footer /> */}
     </div>
   );
 }
