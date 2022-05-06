@@ -14,7 +14,7 @@ function DropdownMenu() {
       setCategories(returnedCategories);
     }
     getCategories();
-  }, []);
+  }, [setCategories]);
 
   return (
     <Navbar
