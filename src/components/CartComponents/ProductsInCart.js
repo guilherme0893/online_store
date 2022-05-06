@@ -9,8 +9,8 @@ function ProductsInCart(props) {
   const { title, thumbnail, price, available_quantity } = props;
   return (
     <Card
-      id="card"
-      className="border border-dark d-flex flex-row mt-3 mb-3 p-4 rounded overflow-hidden shadow"
+      className="border border-dark d-flex flex-row mt-3
+        mb-3 p-4 rounded overflow-hidden shadow"
       style={ {
         margin: 'auto',
         backgroundColor: 'RGB(232, 232, 228)',

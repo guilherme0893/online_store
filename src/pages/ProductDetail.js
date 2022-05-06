@@ -24,7 +24,7 @@ function ProductDetail() {
       setProductDetails(returnedDetails);
       const { shipping: { free_shipping } } = returnedDetails;
       setFreeShipping(free_shipping);
-      console.log(returnedDetails);
+      // console.log(returnedDetails);
     }
     getProductDetails(idFromUrl);
   }, [setProductDetails, idFromUrl, setFreeShipping]);
@@ -45,7 +45,6 @@ function ProductDetail() {
           shipping={ freeShipping }
         />
       </main>
-      {/* <Footer /> */}
     </div>
   );
 }

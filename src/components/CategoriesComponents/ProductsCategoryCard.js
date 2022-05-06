@@ -16,7 +16,7 @@ function ProductsCategoryCard(props) {
       style={ {
         border: '1px solid RGB(236, 228, 219)',
         width: '20rem',
-        height: '370px',
+        height: '350px',
         baseline: 'baseline',
         backgroundColor: 'RGB(232, 232, 228)',
       } }
