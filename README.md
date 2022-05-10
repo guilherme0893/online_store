@@ -13,8 +13,6 @@ Other applications developed by me can be accessed here https://app.netlify.com/
 
 # Future updates
 
-Fix problems of page loading when choosing different product categories
-
 Create the checkout page
 
-Complete remove item button
+Complete remove item button (the item is removed but the page is not refreshed)
