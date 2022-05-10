@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import SendToCartButton from '../HomeComponents/SendToCartButton';
+import SendToCartButton from '../Home/SendToCartButton';
 
 function ProductDetail(props) {
   const { title, price, thumbnail, available_quantity, shipping, id } = props;

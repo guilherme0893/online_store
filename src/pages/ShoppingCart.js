@@ -1,6 +1,6 @@
 import React from 'react';
-import CartHeader from '../components/CartComponents/CartHeader';
-import ProductsInCart from '../components/CartComponents/ProductsInCart';
+import CartHeader from '../components/Cart/CartHeader';
+import ProductsInCart from '../components/Cart/ProductsInCart';
 import SecondaryHeader from '../components/SecondaryHeader';
 
 function ShoppingCart() {
