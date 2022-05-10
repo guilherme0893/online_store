@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import SendToCartButton from '../HomeComponents/SendToCartButton';
+import SendToCartButton from '../Home/SendToCartButton';
 
 function ProductsCategoryCard(props) {
   const { title, id, thumbnail, price } = props;

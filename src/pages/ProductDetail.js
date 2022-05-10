@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 import React, { useEffect, useContext } from 'react';
-import Header from '../components/HomeComponents/Header';
+import Header from '../components/Home/Header';
 // import Footer from '../components/Footer';
-import ProductDetails from '../components/DetailComponents/ProductDetails';
+import ProductDetails from '../components/Details/ProductDetails';
 import GlobalContext from '../Context/GlobalContext';
 import SecondaryHeader from '../components/SecondaryHeader';
 

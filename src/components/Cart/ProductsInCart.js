@@ -6,9 +6,11 @@ import ProductQuantity from './ProductQuantitfy';
 import RemoveFromCartButton from './RemoveFromCartButton';
 
 function ProductsInCart(props) {
-  const { title, thumbnail, price, available_quantity } = props;
+  const { title, thumbnail, price, available_quantity, id } = props;
+
   return (
     <Card
+      id={ id }
       className="border border-dark d-flex flex-row mt-3
         mb-3 p-4 rounded overflow-hidden shadow"
       style={ {
@@ -40,7 +42,7 @@ function ProductsInCart(props) {
             />
           </Container>
           <Container className="d-flex flex-column align-items-center">
-            <RemoveFromCartButton />
+            <RemoveFromCartButton productId={ id } />
           </Container>
         </Container>
       </Card.Body>
@@ -51,7 +53,7 @@ function ProductsInCart(props) {
 ProductsInCart.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  // id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
   available_quantity: PropTypes.number.isRequired,
 };
