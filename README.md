@@ -6,6 +6,16 @@ This application is simulation of an e-commerce application. It consisits of a h
 
 The application provides a intuitive usage as all actions are clearly indicated by the buttons. It is possible to see different products and different categories, and send them to the shopping cart -- the products are saved in the local storage, so the user does not loose the data when leaving the page. 
 
+# How to use it 
+   
+1) First of all clone the repository via <code> git clone </code>  and enter into the folder 
+
+2) Then install the dependencies via <code> npm install </code>
+
+3) To run the application simply run <code> npm start </code>
+
+4) Have fun
+
 # Deploy
 
 For deploying, Netlify is used. The application can be accessed here: https://tourmaline-mermaid-1ee020.netlify.app/
