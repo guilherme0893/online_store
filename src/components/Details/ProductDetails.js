@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
 import SendToCartButton from '../Home/SendToCartButton';
 
 function ProductDetail(props) {
@@ -11,52 +12,44 @@ function ProductDetail(props) {
   // const lastProduct = available_quantity === ONE ? 'Última unidade!' : null;
 
   return (
-    <div
-      className="d-flex flex-row align-items-center mt-3 mb-3 p-4
-        rounded overflow-hidden shadow"
+    <Card
+      className="d-flex flex-row rounded shadow mx-5"
       style={ {
-        margin: 'auto',
         border: '1px solid black',
-        width: '60rem',
-        height: '25rem',
-        baseline: 'baseline',
         backgroundColor: 'RGB(232, 232, 228)',
       } }
     >
-      <div
-        className="d-flex align-items-center"
+      <Card.Body
+        className="d-flex justify-content-center m-5 "
         style={ { width: '40rem', height: '20rem' } }
       >
-        <img
-          className="img-thumbnail rounded d-block border border-dark m-3 p-3"
-          style={ { width: '40rem', height: '20rem' } }
-          src={ thumbnail }
-          alt={ title }
-        />
-      </div>
-      <div
-        className="d-flex flex-column align-items-center m-5 pt-4"
-        style={ { width: '40rem', height: '20rem' } }
-      >
-        <h5 className="text-center">{title}</h5>
-        <p className="text-center">
-          R$
-          {' '}
-          { price }
-        </p>
-        <p
-          className="text-center"
-          style={ { fontWeight: 'bold' } }
-        >
-          { fewProductsAvailable }
-        </p>
-        <p
-          className="text-center font-weight-bold"
-          style={ { fontWeight: 'bold' } }
-        >
-          { shipping ? 'Frete grátis!' : null }
-        </p>
         <div>
+          <img
+            className="img-thumbnail rounded d-block border border-dark"
+            style={ { width: '25rem', height: '20rem' } }
+            src={ thumbnail }
+            alt={ title }
+          />
+        </div>
+        <div className="justify-content-center m-5">
+          <Card.Text className="text-center">{title}</Card.Text>
+          <Card.Text className="text-center">
+            R$
+            {' '}
+            { price }
+          </Card.Text>
+          <Card.Text
+            className="text-center"
+            style={ { fontWeight: 'bold' } }
+          >
+            { fewProductsAvailable }
+          </Card.Text>
+          <Card.Text
+            className="text-center font-weight-bold"
+            style={ { fontWeight: 'bold' } }
+          >
+            { shipping ? 'Frete grátis!' : null }
+          </Card.Text>
           <SendToCartButton
             title={ title }
             id={ id }
@@ -65,8 +58,8 @@ function ProductDetail(props) {
             available_quantity={ available_quantity }
           />
         </div>
-      </div>
-    </div>
+      </Card.Body>
+    </Card>
   );
 }
 

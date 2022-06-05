@@ -18,7 +18,12 @@ function MainProducts() {
 
   return (
     <main
-      className="d-flex flex-wrap h-100 justify-content-center align-items-center"
+      className="d-flex flex-wrap align-items-center"
+      style={ {
+        margin: 'auto',
+        padding: '',
+        maxWidth: '1300px',
+      } }
     >
       {mainProducts.map((products) => (
         <ProductCard

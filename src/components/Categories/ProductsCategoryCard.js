@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import SendToCartButton from '../Home/SendToCartButton';
 
 function ProductsCategoryCard(props) {
-  const { title, id, thumbnail, price } = props;
+  const { title, id, thumbnail, price, available_quantity } = props;
 
   const sliceTitleLimit = 35;
   const shortedTitle = title.slice(0, sliceTitleLimit);
@@ -42,7 +42,7 @@ function ProductsCategoryCard(props) {
         id={ id }
         thumbnail={ thumbnail }
         price={ price }
-        // available_quantity={ available_quantity }
+        available_quantity={ available_quantity }
       />
     </div>
   );
@@ -53,7 +53,7 @@ ProductsCategoryCard.propTypes = {
   price: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
-  // available_quantity: PropTypes.number.isRequired,
+  available_quantity: PropTypes.number.isRequired,
 };
 
 export default ProductsCategoryCard;
