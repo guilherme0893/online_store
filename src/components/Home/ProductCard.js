@@ -2,46 +2,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import SendToCartButton from './SendToCartButton';
+import { Card } from 'react-bootstrap';
 
 function ProductCard(props) {
-  const { title, price, thumbnail, id, available_quantity } = props;
+  const { title, price, thumbnail, id } = props;
 
   return (
-    <div
+    <Card
       id="productCard"
-      className="flex-col m-2 mt-2 justify-content-evenly
-        rounded overflow-hidden"
+      className="m-2 mt-2 overflow-hidden"
       style={ {
-        // border: '1px',
-        width: '18rem',
-        height: '340px',
-        baseline: 'baseline',
         backgroundColor: 'RGB(233, 236, 239)',
       } }
     >
-      <div className="d-flex flex-column align-items-center">
-        <div className="p-4">
+      <Card className="d-flex flex-column align-items-center">
+        <div className="pb-2">
           <Link to={ `/products/${id}` }>
             <img
               className="img-thumbnail mx-auto d-block"
-              style={ { width: '15rem', height: '15rem' } }
+              style={ {
+                width: '15rem',
+                height: '15rem',
+                borderBottom: '2px solid gray',
+              } }
               src={ thumbnail }
               alt={ title }
             />
           </Link>
+          <h5 className="d-flex pt-2 justify-content-center">
+            R$
+            {
+              price
+            }
+          </h5>
         </div>
-        <div>
-          <SendToCartButton
-            title={ title }
-            id={ id }
-            thumbnail={ thumbnail }
-            price={ price }
-            available_quantity={ available_quantity }
-          />
-        </div>
-      </div>
-    </div>
+      </Card>
+    </Card>
   );
 }
 
@@ -50,7 +46,7 @@ ProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
-  available_quantity: PropTypes.number.isRequired,
+  // available_quantity: PropTypes.number.isRequired,
 };
 
 export default ProductCard;

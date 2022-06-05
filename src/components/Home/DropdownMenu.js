@@ -18,11 +18,14 @@ function DropdownMenu() {
 
   return (
     <Navbar
-      expand="lg"
+      // expand="lg"
       className="border border-dark flex p-3 pt-1 pb-1
         justify-content-center bg-light text-dark navbar-expand-md"
+      style={ { marginRight: '30px' } }
     >
-      <NavDropdown>
+      <NavDropdown
+        style={ { maxWidth: '30px' } }
+      >
         <ListGroup>
           {
             categories.map((category, index) => (

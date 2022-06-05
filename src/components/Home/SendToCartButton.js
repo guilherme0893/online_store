@@ -23,7 +23,6 @@ function SendToCartButton(props) {
       <button
         type="button"
         className="btn btn-success"
-        // style={ { backgroundColor: 'rgb(70, 73, 76)' } }
         onClick={ () => sendToCart() }
       >
         Send to cart
