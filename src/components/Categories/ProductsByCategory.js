@@ -34,6 +34,7 @@ function ProductsByCategory() {
             title={ products.title }
             price={ products.price }
             id={ products.id }
+            available_quantity={ products.available_quantity }
           />
         ))}
       </main>
