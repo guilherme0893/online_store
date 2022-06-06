@@ -21,10 +21,12 @@ The application provides a intuitive usage as all actions are clearly indicated 
 For deploying, Netlify is used. The application can be accessed here: https://tourmaline-mermaid-1ee020.netlify.app/
 Other applications developed by me can be accessed here https://app.netlify.com/teams/guilherme0893/overview
 
-# Future updates
+# Future updates & observations
 
 Introduce the search functionality to the search bar in the header
+   - Situation partially solved --> search page must be created
 
 Create the checkout page
 
-Complete remove item button (the item is removed but the page is not refreshed)
+Complete remove item button
+   - The removal of product only works if the page is reload, not as the button is clicked. Page not refreshing correctly
