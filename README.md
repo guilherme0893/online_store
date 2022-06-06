@@ -23,6 +23,8 @@ Other applications developed by me can be accessed here https://app.netlify.com/
 
 # Future updates
 
+Introduce the search functionality to the search bar in the header
+
 Create the checkout page
 
 Complete remove item button (the item is removed but the page is not refreshed)
