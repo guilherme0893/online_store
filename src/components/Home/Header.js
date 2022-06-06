@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { BsCartFill, BsCart } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
@@ -9,8 +9,9 @@ import Dropdown from './DropdownMenu';
 function Header(props) {
   const { text } = props;
   const history = useHistory();
+  const [inputValue, setInput] = useState('');
 
-  const { cartEmpty, setCartEmpty } = useContext(GlobalContext);
+  const { cartEmpty, setCartEmpty, setSearchProduct } = useContext(GlobalContext);
 
   function onButtonClick() {
     history.push('/shopping-cart');
@@ -21,6 +22,19 @@ function Header(props) {
     if (products > 0 || products === null || products === undefined) {
       setCartEmpty(false);
     } else setCartEmpty(true);
+  };
+
+  const onInputChange = (event) => setInput(event.target.value);
+
+  const onSearchButtonClick = async (search) => {
+    search = inputValue;
+    try {
+      const request = await fetch(`https://api.mercadolibre.com/sites/MLB/search?category=${search}`);
+      const result = await request.json();
+      setSearchProduct(result.results);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
@@ -47,8 +61,13 @@ function Header(props) {
           placeholder="Search"
           className="me-2"
           aria-label="Search"
+          onChange={ onInputChange }
         />
-        <Button disabled>Search</Button>
+        <Button
+          onClick={ onSearchButtonClick }
+        >
+          Search
+        </Button>
       </Form>
       <Link to="/" className="text-white" style={ { textDecoration: 'none' } }>
         <h1>
