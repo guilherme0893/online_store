@@ -43,7 +43,7 @@ function ProductQuantity(props) {
 
 ProductQuantity.propTypes = {
   available_quantity: PropTypes.number.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
 };
 
 export default ProductQuantity;
