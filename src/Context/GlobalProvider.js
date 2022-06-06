@@ -25,6 +25,8 @@ function GlobalProvider({ children }) {
 
   const [totalValue, setTotalValue] = useState(0);
 
+  const [searchProduct, setSearchProduct] = useState([]);
+
   const contextValues = {
     categories,
     setCategories,
@@ -44,6 +46,8 @@ function GlobalProvider({ children }) {
     setFilter,
     totalValue,
     setTotalValue,
+    searchProduct,
+    setSearchProduct,
   };
 
   return (

@@ -13,40 +13,37 @@ function ProductDetail(props) {
 
   return (
     <Card
-      className="d-flex flex-row rounded shadow mx-5"
+      className="d-flex flex-row rounded overflow-hidden shadow"
       style={ {
         border: '1px solid black',
         backgroundColor: 'RGB(232, 232, 228)',
+        width: '50rem',
+        height: '25rem',
+        margin: 'auto',
       } }
     >
       <Card.Body
-        className="d-flex justify-content-center m-5 "
-        style={ { width: '40rem', height: '20rem' } }
+        className="d-flex justify-content-center m-2 p-4"
       >
-        <div>
-          <img
-            className="img-thumbnail rounded d-block border border-dark"
-            style={ { width: '25rem', height: '20rem' } }
-            src={ thumbnail }
-            alt={ title }
-          />
-        </div>
-        <div className="justify-content-center m-5">
-          <Card.Text className="text-center">{title}</Card.Text>
-          <Card.Text className="text-center">
+        <img
+          className="img-thumbnail rounded d-block border border-dark"
+          src={ thumbnail }
+          alt={ title }
+        />
+        <Card.Text className="justify-content-center m-5 text-center">
+          <Card.Text>{title}</Card.Text>
+          <Card.Text>
             R$
             {' '}
             { price }
           </Card.Text>
           <Card.Text
-            className="text-center"
             style={ { fontWeight: 'bold' } }
           >
             { fewProductsAvailable }
           </Card.Text>
           <Card.Text
-            className="text-center font-weight-bold"
-            style={ { fontWeight: 'bold' } }
+            className="fw-bold"
           >
             { shipping ? 'Frete grátis!' : null }
           </Card.Text>
@@ -57,7 +54,7 @@ function ProductDetail(props) {
             price={ price }
             available_quantity={ available_quantity }
           />
-        </div>
+        </Card.Text>
       </Card.Body>
     </Card>
   );
