@@ -17,25 +17,22 @@ function MainProducts() {
   }, [setMainProducts]);
 
   return (
-    <main
-      className="d-flex flex-wrap align-items-center"
-      style={ {
-        margin: 'auto',
-        padding: '',
-        maxWidth: '1300px',
-      } }
-    >
-      {mainProducts.map((products) => (
-        <ProductCard
-          key={ products.id }
-          thumbnail={ products.thumbnail }
-          title={ products.title }
-          price={ products.price }
-          available_quantity={ products.available_quantity }
-          id={ products.id }
-        />
-      ))}
-    </main>
+    <div className="w-75 mx-auto">
+      <main
+        className="d-flex flex-wrap justify-content-between"
+      >
+        {mainProducts.map((products) => (
+          <ProductCard
+            key={ products.id }
+            thumbnail={ products.thumbnail }
+            title={ products.title }
+            price={ products.price }
+            available_quantity={ products.available_quantity }
+            id={ products.id }
+          />
+        ))}
+      </main>
+    </div>
   );
 }
 
