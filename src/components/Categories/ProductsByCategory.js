@@ -24,8 +24,7 @@ function ProductsByCategory() {
   return (
     <div>
       <main
-        className="d-flex flex-wrap h-100 justify-content-center
-        align-items-center"
+        className="d-flex flex-wrap h-100 justify-content-center"
       >
         {productsByCategory.map((products) => (
           <ProductsCategoryCard
