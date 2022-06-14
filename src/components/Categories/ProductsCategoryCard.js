@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Card, Container } from 'react-bootstrap';
 import SendToCartButton from '../Home/SendToCartButton';
 
 function ProductsCategoryCard(props) {
@@ -11,32 +12,28 @@ function ProductsCategoryCard(props) {
   const shortedTitle = title.slice(0, sliceTitleLimit);
 
   return (
-    <div
+    <Container
       className="flex-col m-3 p-4 justify-content-evenly rounded overflow-hidden shadow"
       style={ {
-        border: '1px solid RGB(236, 228, 219)',
         width: '20rem',
-        height: '350px',
-        baseline: 'baseline',
         backgroundColor: 'RGB(232, 232, 228)',
       } }
     >
-      <div className="d-flex align-items-center mb-3">
-        <img
+      <Card className="d-flex align-items-center">
+        <Card.Img
           className="img-thumbnail rounded mx-auto d-block"
-          style={ { width: '10rem', height: '10rem' } }
           src={ thumbnail }
           alt={ title }
         />
-      </div>
-      <div className="mt-1 d-flex flex-column align-items-center">
+      </Card>
+      <Card.Body className="mt-1 d-flex flex-column align-items-center">
         <Link to={ `/products/${id}` }>{shortedTitle}</Link>
-        <p className="">
+        <Card.Text>
           R$
           { ' ' }
           {price}
-        </p>
-      </div>
+        </Card.Text>
+      </Card.Body>
       <SendToCartButton
         title={ title }
         id={ id }
@@ -44,7 +41,7 @@ function ProductsCategoryCard(props) {
         price={ price }
         available_quantity={ available_quantity }
       />
-    </div>
+    </Container>
   );
 }
 

@@ -15,7 +15,6 @@ function ProductDetail(props) {
     <Card
       className="d-flex flex-row rounded overflow-hidden shadow"
       style={ {
-        border: '1px solid black',
         backgroundColor: 'RGB(232, 232, 228)',
         width: '50rem',
         height: '25rem',

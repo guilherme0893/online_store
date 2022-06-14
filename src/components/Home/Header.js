@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { useEffect, useContext, useState } from 'react';
 import { BsCartFill, BsCart } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
-import { Form, FormControl, Button, Nav } from 'react-bootstrap';
+import { Form, FormControl, Button, Navbar } from 'react-bootstrap';
 import GlobalContext from '../../Context/GlobalContext';
 import Dropdown from './DropdownMenu';
 
@@ -42,14 +43,23 @@ function Header(props) {
   });
 
   return (
-    <Nav
+    <Navbar
+      collapseOnSelect
+      expand="sm"
       data-testid="main-header"
-      className="d-flex justify-content-evenly p-3"
       style={ {
-        backgroundColor: 'rgb(54, 69, 79)',
         border: '1px solid black',
+        backgroundColor: 'rgb(76, 92, 104)',
       } }
+      className="d-flex justify-content-around p-2"
     >
+      <Navbar.Brand>
+        <Link to="/" className="text-white" style={ { textDecoration: 'none' } }>
+          <h1>
+            { text }
+          </h1>
+        </Link>
+      </Navbar.Brand>
       <Form
         className="d-flex"
       >
@@ -58,7 +68,7 @@ function Header(props) {
             marginLeft: '50px',
           } }
           type="search"
-          placeholder="Search"
+          // placeholder="Search"
           className="me-2"
           aria-label="Search"
           onChange={ onInputChange }
@@ -69,13 +79,14 @@ function Header(props) {
           Search
         </Button>
       </Form>
-      <Link to="/" className="text-white" style={ { textDecoration: 'none' } }>
-        <h1>
-          { text }
-        </h1>
-      </Link>
       <Dropdown />
-      <Link href="null" style={ { maxWidth: '30px' } }>
+      <Link
+        href="null"
+        style={ {
+          maxWidth: '30px',
+          marginRight: '60px',
+        } }
+      >
         { cartEmpty ? (
           <BsCartFill
             onClick={ () => onButtonClick() }
@@ -89,7 +100,7 @@ function Header(props) {
             />
           )}
       </Link>
-    </Nav>
+    </Navbar>
   );
 }
 
