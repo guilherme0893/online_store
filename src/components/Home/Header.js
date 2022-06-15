@@ -20,9 +20,9 @@ function Header(props) {
 
   const isCartEmpty = () => {
     const products = JSON.parse(localStorage.getItem('productsInCart'));
-    if (products > 0 || products === null || products === undefined) {
-      setCartEmpty(false);
-    } else setCartEmpty(true);
+    if (!products || products.length === 0) {
+      setCartEmpty(true);
+    } else setCartEmpty(false);
   };
 
   const onInputChange = (event) => setInput(event.target.value);
@@ -87,14 +87,14 @@ function Header(props) {
           marginRight: '60px',
         } }
       >
-        { cartEmpty ? (
-          <BsCartFill
+        { cartEmpty === true ? (
+          <BsCart
             onClick={ () => onButtonClick() }
             size="1x"
           />
         )
           : (
-            <BsCart
+            <BsCartFill
               onClick={ () => onButtonClick() }
               size="1x"
             />
