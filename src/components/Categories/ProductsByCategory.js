@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
-import ProductsCategoryCard from
-  './ProductsCategoryCard';
+import { Spinner } from 'react-bootstrap';
+import ProductsCategoryCard from './ProductsCategoryCard';
 import GlobalContext from '../../Context/GlobalContext';
 
 function ProductsByCategory() {
@@ -23,20 +23,31 @@ function ProductsByCategory() {
 
   return (
     <div>
-      <main
-        className="d-flex flex-wrap h-100 justify-content-center"
-      >
-        {productsByCategory.map((products) => (
-          <ProductsCategoryCard
-            key={ products.id }
-            thumbnail={ products.thumbnail }
-            title={ products.title }
-            price={ products.price }
-            id={ products.id }
-            available_quantity={ products.available_quantity }
-          />
-        ))}
-      </main>
+      {
+        productsByCategory.length === 0 ? (
+          <div className="d-flex justify-content-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        )
+          : (
+            <main
+              className="d-flex flex-wrap h-100 justify-content-center"
+            >
+              {productsByCategory.map((products) => (
+                <ProductsCategoryCard
+                  key={ products.id }
+                  thumbnail={ products.thumbnail }
+                  title={ products.title }
+                  price={ products.price }
+                  id={ products.id }
+                  available_quantity={ products.available_quantity }
+                />
+              ))}
+            </main>
+          )
+      }
     </div>
 
   );

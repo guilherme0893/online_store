@@ -21,9 +21,13 @@ function ProductsCategoryCard(props) {
     >
       <Card className="d-flex align-items-center">
         <Card.Img
-          className="img-thumbnail rounded mx-auto d-block"
+          className="rounded mx-auto d-block"
           src={ thumbnail }
           alt={ title }
+          style={ {
+            width: '15rem',
+            height: '15rem',
+          } }
         />
       </Card>
       <Card.Body className="mt-1 d-flex flex-column align-items-center">

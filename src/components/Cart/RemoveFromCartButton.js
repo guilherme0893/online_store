@@ -11,6 +11,7 @@ function RemoveFromCartButton(props) {
     const filteredProducts = products
       .filter((product) => product.productId !== productId);
     setSendToLocalStorage(filteredProducts);
+    window.location.reload(false);
   };
 
   return (
