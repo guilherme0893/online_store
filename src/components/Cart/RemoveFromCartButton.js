@@ -13,7 +13,8 @@ function RemoveFromCartButton(props) {
     setSendToLocalStorage(filteredProducts);
     const url = window.location.href;
     const controlURL = url.substring(url.lastIndexOf('/') + 1);
-    if (controlURL) {
+    // console.log(controlURL);
+    if (controlURL === 'shopping-cart') {
       window.location.reload(false);
     }
   };
