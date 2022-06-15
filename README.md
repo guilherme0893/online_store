@@ -27,6 +27,3 @@ Introduce the search functionality to the search bar in the header
    - Situation partially solved --> search page must be created
 
 Create the checkout page
-
-Complete remove item button
-   - The removal of product only works if the page is reload, not as the button is clicked. Page not refreshing correctly
