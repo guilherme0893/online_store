@@ -11,7 +11,11 @@ function RemoveFromCartButton(props) {
     const filteredProducts = products
       .filter((product) => product.productId !== productId);
     setSendToLocalStorage(filteredProducts);
-    window.location.reload(false);
+    const url = window.location.href;
+    const controlURL = url.substring(url.lastIndexOf('/') + 1);
+    if (controlURL) {
+      window.location.reload(false);
+    }
   };
 
   return (
