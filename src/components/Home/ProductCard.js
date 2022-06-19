@@ -1,41 +1,41 @@
-/* eslint-disable camelcase */
+/* eslint-disable react/jsx-max-depth */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
 import { BsZoomIn } from 'react-icons/bs';
 
 function ProductCard(props) {
   const { title, price, thumbnail, id } = props;
 
   return (
-    <Card
-      id="productCard"
-      className="m-2 overflow-hidden shadow-sm"
-    >
-      <Card
-        className="d-flex flex-column align-items-center"
-        style={ {
-          backgroundColor: '#f5fbfd',
-        } }
+    <div className="col-12 col-md-6 col-lg-3">
+      <div
+        className="mb-1 m-lg-2 m-md-2 card align-items-center"
       >
-        <Card.Img
-          className="img-thumbnail mx-auto d-block"
+        <div
+          className="d-flex flex-column"
           style={ {
-            width: '15rem',
-            height: '15rem',
-            borderBottom: '2px solid gray',
+            backgroundColor: '#f5fbfd',
           } }
-          src={ thumbnail }
-          alt={ title }
-        />
-        <Card.Body className="d-flex">
-          <Card.Text className="fw-bold m-1">
+        >
+          <img
+            className=""
+            style={ {
+              width: '15rem',
+              height: '15rem',
+              borderBottom: '2px solid gray',
+            } }
+            src={ thumbnail }
+            alt={ title }
+          />
+        </div>
+        <div className="d-flex flex-lg-row card-body">
+          <h5 className="fw-bold m-1 card-title">
             R$
             {
               price
             }
-          </Card.Text>
+          </h5>
           <Link
             className="d-flex m-1"
             to={ `/products/${id}` }
@@ -43,10 +43,9 @@ function ProductCard(props) {
           >
             <BsZoomIn style={ { color: 'black', fontSize: '20px' } } />
           </Link>
-          {/* <BsCart className="d-flex m-1" style={ { fontSize: '20px' } } /> */}
-        </Card.Body>
-      </Card>
-    </Card>
+        </div>
+      </div>
+    </div>
   );
 }
 

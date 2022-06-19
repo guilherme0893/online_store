@@ -18,14 +18,13 @@ function DropdownMenu() {
 
   return (
     <Navbar
-      // expand="lg"
-      className="border border-dark flex p-3 pt-1 pb-1
+      className="border border-dark flex m-3
         justify-content-center bg-light text-dark navbar-expand-md"
-      style={ { marginRight: '30px' } }
     >
-      <NavDropdown
-        style={ { maxWidth: '30px' } }
-      >
+      <p className="m-auto p-2">
+        Categories
+      </p>
+      <NavDropdown className="pr-2">
         <ListGroup>
           {
             categories.map((category, index) => (
@@ -41,7 +40,6 @@ function DropdownMenu() {
           }
         </ListGroup>
       </NavDropdown>
-      Search for categories
     </Navbar>
   );
 }

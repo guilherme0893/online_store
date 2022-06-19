@@ -16,10 +16,8 @@ function ProductsByCategory() {
     const url = window.location.href;
     // major change to solve bug when using url different from the localhost:3000
     const categoryFromURL = url.substring(url.lastIndexOf('/') + 1); // replace('http://localhost:3000/products/category/', '');
-    // console.log(categoryFromURL);
     getCategoriesById(categoryFromURL);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [productsByCategory]);
+  });
 
   return (
     <div>

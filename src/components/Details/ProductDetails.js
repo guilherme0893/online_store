@@ -1,61 +1,62 @@
+/* eslint-disable react/jsx-max-depth */
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import ProductAmountMessage from './ProductAmountMessage';
 import SendToCartButton from '../Home/SendToCartButton';
+import ShippingMessage from './ShippingMessage';
 
 function ProductDetail(props) {
   const { title, price, thumbnail, available_quantity, shipping, id } = props;
-  const TEN = 10;
-  // const ONE = 1;
-  const fewProductsAvailable = available_quantity < TEN ? 'Últimas unidades!' : null;
-  // const lastProduct = available_quantity === ONE ? 'Última unidade!' : null;
 
   return (
-    <Card
-      className="d-flex flex-row rounded overflow-hidden shadow"
-      style={ {
-        backgroundColor: 'RGB(232, 232, 228)',
-        width: '50rem',
-        height: '25rem',
-        margin: 'auto',
-      } }
-    >
-      <Card.Body
-        className="d-flex justify-content-center m-2 p-4"
+    <div className="col-12 col-md-6 col-lg-4 m-lg-auto md-m-auto">
+      <div
+        className="card d-flex flex-row rounded
+          overflow-hidden m-2"
+        style={ {
+          backgroundColor: 'RGB(232, 232, 228)',
+        } }
       >
-        <img
-          className="img-thumbnail rounded d-block border border-dark"
-          src={ thumbnail }
-          alt={ title }
-        />
-        <Card.Text className="justify-content-center m-5 text-center">
-          <Card.Text>{title}</Card.Text>
-          <Card.Text>
-            R$
-            {' '}
-            { price }
-          </Card.Text>
-          <Card.Text
-            style={ { fontWeight: 'bold' } }
-          >
-            { fewProductsAvailable }
-          </Card.Text>
-          <Card.Text
-            className="fw-bold"
-          >
-            { shipping ? 'Frete grátis!' : null }
-          </Card.Text>
-          <SendToCartButton
-            title={ title }
-            id={ id }
-            thumbnail={ thumbnail }
-            price={ price }
-            available_quantity={ available_quantity }
+        <div
+          className="d-lg-flex
+           md-align-items-center align-items-center card-body"
+        >
+          <img
+            className="img-thumbnail rounded d-block border border-dark card-img-top"
+            style={ {
+              borderBottom: '2px solid gray',
+            } }
+            src={ thumbnail }
+            alt={ title }
           />
-        </Card.Text>
-      </Card.Body>
-    </Card>
+          <div
+            className="d-flex flex-column align-items-center
+              justify-content-center m-3 text-center card-title"
+          >
+            <h5 className="card-text">{title}</h5>
+            <h5 className="card-text">
+              R$
+              {' '}
+              { price }
+            </h5>
+            <h5 className="card-text">
+              <ProductAmountMessage availableQuantity={ available_quantity } />
+            </h5>
+            <h5 className="card-text">
+              <ShippingMessage shipping={ shipping } />
+            </h5>
+            <SendToCartButton
+              title={ title }
+              id={ id }
+              thumbnail={ thumbnail }
+              price={ price }
+              available_quantity={ available_quantity }
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

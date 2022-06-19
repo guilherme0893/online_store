@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Form, Container } from 'react-bootstrap';
+// import GlobalContext from '../../Context/GlobalContext';
 
 function ProductQuantity(props) {
   // eslint-disable-next-line no-unused-vars
@@ -11,12 +13,13 @@ function ProductQuantity(props) {
   const quantityArray = Array.from(Array(available_quantity + 1).keys()); // cria um elemento iterável que possui as chaves do objeto com X propriedades (available_quantity)
 
   return (
-    <div className="text-center inline-block">
-      <div className="d-flex">
+    <Container className="text-center inline-block">
+      <Container className="d-flex">
         <p className="m-auto">
           Escolha quantidade
         </p>
-        <select
+        <Form.Select
+          style={ { width: '60px', marginLeft: '5px' } }
           value={ value }
           onChange={ (event) => setValue(event.target.value) }
         >
@@ -29,15 +32,15 @@ function ProductQuantity(props) {
               { Number(quantity) }
             </option>
           ))}
-        </select>
-      </div>
-      <div className="text-center mt-3">
+        </Form.Select>
+      </Container>
+      <Container className="text-center mt-3">
         <p>
-          Subtotal: R$
+          R$
           { (value * price).toFixed(2) }
         </p>
-      </div>
-    </div>
+      </Container>
+    </Container>
   );
 }
 
