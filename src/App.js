@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import Routes from './routes/Routes';
 import GlobalProvider from './Context/GlobalProvider';
+import './global.css';
 
 function App() {
   useEffect(() => {
