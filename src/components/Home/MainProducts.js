@@ -14,11 +14,10 @@ function MainProducts() {
       setMainProducts(products);
     }
     getProductsFromCategoryAndQuery();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setMainProducts]);
+  });
 
   return (
-    <div className="w-75 mx-auto">
+    <div className="container">
       {
         mainProducts.length === 0 ? (
           <div className="d-flex justify-content-center">
@@ -29,7 +28,8 @@ function MainProducts() {
         )
           : (
             <main
-              className="d-flex flex-wrap justify-content-between"
+              className="d-lg-flex d-md-flex flex-lg-wrap
+                flex-md-wrap flex flex-wrap h-100"
             >
               {mainProducts.map((products) => (
                 <ProductCard
