@@ -23,6 +23,10 @@ Other applications developed by me can be accessed here https://app.netlify.com/
 
 # Future updates & observations
 
+Fix the responsive detail product card
+
+Fix the remove button bug 
+
 Introduce the search functionality to the search bar in the header
    - Situation partially solved --> search page must be created
 
