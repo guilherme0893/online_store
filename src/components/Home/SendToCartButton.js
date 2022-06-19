@@ -19,7 +19,7 @@ function SendToCartButton(props) {
   }
 
   return (
-    <div className="text-center">
+    <div className="text-center mt-4">
       <button
         type="button"
         className="btn btn-success"
