@@ -11,12 +11,6 @@ function RemoveFromCartButton(props) {
     const filteredProducts = products
       .filter((product) => product.productId !== productId);
     setSendToLocalStorage(filteredProducts);
-    const url = window.location.href;
-    const controlURL = url.substring(url.lastIndexOf('/') + 1);
-    // console.log(controlURL);
-    if (controlURL === 'shopping-cart') {
-      window.location.reload(false);
-    }
   };
 
   return (
